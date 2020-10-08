@@ -4,13 +4,13 @@ CREATE TABLE points(
     pointid INTEGER NOT NULL,
     latitude REAL NOT NULL,
     longitude REAL NOT NULL,
-    PRIMARY KEY(pointid),
+    PRIMARY KEY(pointid)
 );
 
 CREATE TABLE routes (
     routeid INTEGER NOT NULL, 
     template VARCHAR(64) NOT NULL,
-    PRIMARY KEY(routeid),
+    PRIMARY KEY(routeid)
 );
 
 CREATE TABLE loops(
@@ -20,6 +20,6 @@ CREATE TABLE loops(
     heading REAL NOT NULL,
     PRIMARY KEY(routeid, created, pointid),
     FOREIGN KEY(routeid) REFERENCES routes(routeid),
-    FOREIGN KEY(pointid) REFERENCES points(pointid), 
+    FOREIGN KEY(pointid) REFERENCES points(pointid)
 );
 

@@ -1,0 +1,17 @@
+#!/bin/bash
+# insta485db
+
+# Stop on errors
+# See https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+set -Eeuo pipefail
+
+# Destroy database
+rm -rf var/map.sqlite3 var/uploads
+
+# Recreate database
+mkdir -p var/uploads
+sqlite3 var/map.sqlite3 < sql/schema.sql
+
+#cp sql/uploads/* var/uploads/
+
+
